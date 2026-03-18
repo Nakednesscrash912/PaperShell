@@ -1,15 +1,27 @@
+![PaperShell Banner](./README_images/banner.png)
+
 # PaperShell 📜
 
 A GNOME 49 Shell Extension designed to enhance screen readability and reduce eye strain by adding a subtle, customizable texture overlay to your entire desktop.
 
 Inspired by research on visual ergonomics, this extension applies a noise texture (grain effect) over your screen. By mimicking the natural texture of paper, it softens the harshness of flat, bright digital displays, making long reading or coding sessions significantly more comfortable for your eyes.
 
-### ✨ Features
+### ✨ New in v1.0.0
 
-- **Global Overlay:** Applies a seamless, semi-transparent texture across your entire screen and all monitors.
-- **Zero Interference:** The overlay is completely "click-through." It will never block you from interacting with your windows or apps.
-- **Quick Settings Menu:** Easily toggle the effect on or off from the top-right GNOME system panel.
-- **Hot-Swappable Textures:** Switch between different textures on the fly without needing to restart the GNOME Shell, just replace the noise.png image.
+- **Quick Settings Integration:** Toggle PaperShell directly from the main GNOME system menu.
+- **Persistent Settings:** Your opacity and toggle states are now saved across reboots.
+- **Fullscreen Hiding:** Toggle to automatically disable the texture when you're gaming or watching videos.
+- **Night Light Sync:** Optional mode to automatically activate the texture only when system Night Light is active.
+- **Workspace-Aware:** Hides during the Overview to ensure window dragging remains fluid and unobstructed.
+
+---
+
+### 🚀 Features
+
+- **Global Overlay:** Seamless, semi-transparent texture across all monitors and displays.
+- **Zero Interference:** Completely click-through; never interferes with your workflow or input.
+- **Advanced Preferences:** Fine-tune texture intensity using the Extension Settings.
+- **High-Performance Rendering:** Uses native Clutter constraints for zero-lag performance on HiDPI and 4K displays.
 
 #### Filter Off
 
@@ -23,30 +35,47 @@ Inspired by research on visual ergonomics, this extension applies a noise textur
 
 ### 📥 Installation
 
-Currently, this extension is installed manually.
+Because this version uses **GSettings**, you must compile the schemas for the extension to function.
 
-1. Download or clone this repository.
-2. Ensure the folder is named exactly `papershell@lalovene.github.com`.
-3. Move the folder into your local GNOME extensions directory:
+1.  **Download/Clone** the repository into your extensions folder:
 
-```bash
-mv papershell@lalovene.github.com ~/.local/share/gnome-shell/extensions/
+    ```bash
+    git clone https://github.com/LaloVene/PaperShell.git ~/.local/share/gnome-shell/extensions/papershell@lalovene.github.com
+    ```
 
-```
+2.  **Compile the Schemas** (Required for settings to work):
 
-4. Log out of your Fedora/GNOME session and log back in to force Wayland to load the new files.
-5. Enable the extension via the terminal:
+    ```bash
+    cd ~/.local/share/gnome-shell/extensions/papershell@lalovene.github.com
+    glib-compile-schemas schemas/
+    ```
 
-```bash
-gnome-extensions enable papershell@lalovene.github.com
+3.  **Restart GNOME Shell:**
+    Log out and log back in.
 
-```
+4.  **Enable:**
+    Use the **Extensions** app or run:
 
-_(Alternatively, enable it using the "Extensions" GUI app)._
+    ```bash
+    gnome-extensions enable papershell@lalovene.github.com
+    ```
+
+---
+
+### ⚙️ Configuration
+
+Access the settings by clicking the **Gear Icon** next to PaperShell in the GNOME Extensions app.
+
+- **Texture Intensity:** Adjust the slider to find your perfect balance.
+- **Behavior:** Toggle "Hide in Fullscreen" or "Sync with Night Light" to automate your environment.
+- **Custom Textures:** You can still replace the `noise.png` inside the extension folder with any image of your choice for a personalized feel.
+
+![settings](./README_images/settings.png)
+
+---
 
 ### 🙏 Credits & Acknowledgements
 
 This extension is a Linux/GNOME port inspired by the original open-source Windows desktop application.
 
 - **Original Windows App Concept:** Created by Umer Hamaaz ([Umer-Hamaaz/Papersrc](https://github.com/Umer-Hamaaz/Papersrc)).
-- **Default Noise Texture:** Photography provided by [Josiah Rock on Unsplash](https://unsplash.com/@josiahrock).
