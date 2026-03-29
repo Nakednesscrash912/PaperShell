@@ -2,6 +2,7 @@ import GObject from "gi://GObject";
 import St from "gi://St";
 import Clutter from "gi://Clutter";
 import Gio from "gi://Gio";
+import Shell from "gi://Shell";
 
 import {
   Extension,
@@ -101,24 +102,7 @@ export default class PaperShellExtension extends Extension {
       if (isFullscreen && this._settings.get_boolean("hide-in-fullscreen")) {
         this._overlay.hide();
       } else {
-        if (!Main.overview.visible) this._overlay.show();
-      }
-    });
-
-    // Hide the overlay when entering the overview: allows for drag and drop
-    this._overviewShowingId = Main.overview.connect("showing", () => {
-      if (this._overlay) this._overlay.hide();
-    });
-    this._overviewHidingId = Main.overview.connect("hiding", () => {
-      let focusWindow = global.display.get_focus_window();
-      let isFullscreen = focusWindow ? focusWindow.is_fullscreen() : false;
-
-      if (this._overlay && this._settings.get_boolean("enabled-state")) {
-        if (
-          !(isFullscreen && this._settings.get_boolean("hide-in-fullscreen"))
-        ) {
-          this._overlay.show();
-        }
+        this._overlay.show();
       }
     });
 
@@ -136,6 +120,9 @@ export default class PaperShellExtension extends Extension {
       this._indicator = new PaperShellIndicator(this);
       Main.panel.statusArea.quickSettings.addExternalIndicator(this._indicator);
     } else if (!show && this._indicator) {
+      if (!this._settings.get_boolean("enabled-state"))
+        this._settings.set_boolean("enabled-state", true);
+
       this._indicator.destroy();
       this._indicator = null;
     }
@@ -148,10 +135,6 @@ export default class PaperShellExtension extends Extension {
       this._settings.disconnect(this._opacityChangedId);
     if (this._nightLightId) this._colorSettings.disconnect(this._nightLightId);
     if (this._fullscreenId) global.display.disconnect(this._fullscreenId);
-    if (this._overviewShowingId)
-      Main.overview.disconnect(this._overviewShowingId);
-    if (this._overviewHidingId)
-      Main.overview.disconnect(this._overviewHidingId);
 
     this.disableOverlay();
 
@@ -185,6 +168,7 @@ export default class PaperShellExtension extends Extension {
     );
 
     Main.layoutManager.uiGroup.add_child(this._overlay);
+    Shell.util_set_hidden_from_pick(this._overlay, true);
 
     // Fetch saved opacity
     this.setOpacity(this._settings.get_double("opacity"));

@@ -12,7 +12,6 @@ Inspired by research on visual ergonomics, this extension applies a noise textur
 - **Persistent Settings:** Your opacity and toggle states are now saved across reboots.
 - **Fullscreen Hiding:** Toggle to automatically disable the texture when you're gaming or watching videos.
 - **Night Light Sync:** Optional mode to automatically activate the texture only when system Night Light is active.
-- **Workspace-Aware:** Hides during the Overview to ensure window dragging remains fluid and unobstructed.
 
 ---
 
